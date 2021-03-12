@@ -62,7 +62,7 @@ def data_clean(file):
     data['avg_rating_of_driver'].fillna(0, inplace = True)
 
     # Time will 
-    data['service_age'] = (data['last_trip_date'] - data['signup_date']).dt.days
+    data['use_service'] = ((data['last_trip_date'] - data['signup_date']).dt.days > 0) * 1
 
     # get day, month, year columns 
 
@@ -71,7 +71,8 @@ def data_clean(file):
 
 
     data['signup_day'] = data['signup_date'].dt.day
-    data['signup_month'] = data['signup_date'].dt.month
+    # data['signup_month'] = data['signup_date'].dt.month
+
     data.drop(columns = ['last_trip_date', 'signup_date'], inplace=True)
 
     # Returns data and target
