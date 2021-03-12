@@ -70,6 +70,22 @@
 
 > **Gradient Boosting Classifier**
 
+```python
+# The model is create with the followin prameters: 
+learning_rate = 0.1 
+n_estimator = 100
+subsamples = 1.0
+min_sample_split = 2
+min_sample_leaf = 1
+max_depth = 3
+min_impurity_decrease = 0
+```
+ 
+Model|Precision|Recall|Accuracy|
+-----|---------|------|--------|
+Random Forest Classifier||||
+Gradient Boosting Classifier|0.762|0.793|0.762|
+
 </details>
 
 ---
@@ -102,8 +118,3 @@
 |16 | churn| 50000|uint8| 1 if rider churned|
 
 </details>
-
-We started with making a Gradient Boosting Regressor, picking parameters that seemed reasonable. 
-This model had a learning rate of 0.1, 100 estimators, subsample of 1.0, min samples split as 2, min sample leaf as 1, 
-max depth of 3, and min impurity decrease of 0. 
-This resulted in an accuracy of 0.762, precision of 0.758, and recall of 0.793
