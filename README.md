@@ -1,8 +1,63 @@
-# case-study-driver-churn-rate
+# How to prevent rider churning
 
-We started with making all of our columns non-string or meaningfully numeric. We got dummy variables for the city and Phone column. 
+**This project aims to understand the factors that lead to rider churning and explore methods to improve rider retention rate.**
 
+<details>
 
+<summary>Data Overview</summary>
+
+---
+Data consist of 12 columns and 50000 observations. The following three columns (Average Rating by Driver, Average Rating of Driver, and Phone) contain missing data, noted in the table below.
+
+|#   |Column                 | Misisng |  Dtype |
+|--- | ------                |  -------| -----  |
+| 0  | avg_dist              |  0      | float64|
+| 1  | avg_rating_by_driver  |  201|  float64|
+| 2  | avg_rating_of_driver  |  8122|  float64|
+| 3  | avg_surge             |  0|  float64|
+| 4  | city                  |  0|  object |
+| 5  | last_trip_date        |  0|  object |
+| 6  | phone                 |  396|  object |
+| 7  | signup_date           |  0|  object |
+| 8  | surge_pct             |  0|  float64|
+| 9  | trips_in_first_30_days|  0|  int64  |
+| 10 | luxury_car_user       | 0| bool   |
+| 11 | weekday_pct           | 0| float64|
+</details>
+
+---
+
+<details>
+
+<summary>Exploratory Data Analysis </summary>
+
+### Table of Missing Values
+
+|Column| Imputed As: | Why?|
+|------|--------------|-----|
+|Average Rating by Driver| 0 | Customers with missing ratings have never been rated before.|
+|Average Rating of Driver| 0 | Drivers with missing ratings have never been rated before|
+|Phone| "Andriod" | Variable changed to is_iphone. If not, then we assume it is something else, i.e., Andriod. |
+
+### Feature Engineering
+
+|New Column| Created From| Levels|
+|------|--------------|-----|
+|is_phone|Phones which are iphones| True or False|
+|city_Astapor          | City of Astapor|True or False|
+|city_King's Landing   | City of King's Landing  |True or False|
+|city_Winterfell       |City of Winterfell|True or False|
+|last_trip_day         |Day of last trip date | 1 to 31|
+|last_trip_month       |Month of last trip date| 1 - 12|
+|signup_day            |Day of signup date | 1 - 31|
+|signup_month          |Month of signup date| 1 - 12|
+|**churn**| *target* :: Last trip date less greater than 30 days. |True or False|
+
+<img src = "img/data_hist.png" hight= "100"></img>
+
+</details>
+
+---
 <details>
 
 <summary> Data Dictionay </summary>
@@ -25,6 +80,6 @@ We started with making all of our columns non-string or meaningfully numeric. We
 | 13|  last_trip_month       |  50000 |  int64  |Month of last trip|
 | 14|  signup_day            |  50000 |  int64  |Day of signup|
 | 15|  signup_month          |  50000 |  int64 |Month of signup|
-|16 | churn| 50000|uint8| 1 if driver churned|
+|16 | churn| 50000|uint8| 1 if rider churned|
 
 </details>
