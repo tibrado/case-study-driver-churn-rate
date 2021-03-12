@@ -1,4 +1,4 @@
-# How to prevent rider churning
+# How to Prevent Rider Churning
 
 **This project aims to understand the factors that lead to rider churning and explore methods to improve rider retention rate.**
 
@@ -68,6 +68,16 @@
 
 > **Random Forest Classifier**
 
+```python
+# The model is create with the followin prameters:
+bootstrap = True
+max_depth = None
+max_features = None
+min_samples_leaf = 4
+min_samples_split = 2
+random_state = 1
+```
+
 > **Gradient Boosting Classifier**
 
 ```python
@@ -80,17 +90,15 @@ min_sample_leaf = 1
 max_depth = 3
 min_impurity_decrease = 0
 ```
- 
+
 Model|Precision|Recall|Accuracy|
 -----|---------|------|--------|
-Random Forest Classifier||||
+Random Forest Classifier|0.756|0.752|0.784|
 Gradient Boosting Classifier|0.762|0.793|0.762|
 
 </details>
 
 ---
-### Conclusion
-
 ---
 ---
 <details>
