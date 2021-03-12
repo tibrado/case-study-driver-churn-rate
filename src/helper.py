@@ -45,15 +45,15 @@ def data_clean(file):
 
     # Create Churn Column
     thirty_days_ago = pd.to_datetime('2014-06-01') - pd.to_timedelta(30,unit='d')
-    data['churn'] = pd.to_datetime(data['last_trip_date']) > thirty_days_ago
+    data['churn'] = (pd.to_datetime(data['last_trip_date']) > thirty_days_ago) * 1
     
     # Create duymmy variables 
     data = get_dummies(data, ['city'])
     
     # Remap column 
     data = data.rename(columns = {'phone':'is_iphone'})
-    data['is_iphone'] = data['is_iphone'].map(lambda phone: True if phone == 'iPhone' else False)
-    # data['luxury_car_user'] = data['luxury_car_user'].map({True: 1, False: 0})
+    data['is_iphone'] = data['is_iphone'].map(lambda phone: 1 if phone == 'iPhone' else 0)
+    data['luxury_car_user'] = data['luxury_car_user'].map({True: 1, False: 0})
 
     # Change last trip and signup date to day and month 
 
@@ -61,10 +61,13 @@ def data_clean(file):
     data['avg_rating_by_driver'].fillna(0, inplace = True)
     data['avg_rating_of_driver'].fillna(0, inplace = True)
 
+    # Time will 
+    data['service_age'] = (data['last_trip_date'] - data['signup_date']).dt.days
+
     # get day, month, year columns 
 
     data['last_trip_day'] = data['last_trip_date'].dt.day
-    data['last_trip_month'] = data['last_trip_date'].dt.month
+    # data['last_trip_month'] = data['last_trip_date'].dt.month
 
 
     data['signup_day'] = data['signup_date'].dt.day

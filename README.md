@@ -7,7 +7,7 @@
 <summary>Data Overview</summary>
 
 ---
-Data consist of 12 columns and 50000 observations. The following three columns (Average Rating by Driver, Average Rating of Driver, and Phone) contain missing data, noted in the table below.
+**Data consist of 12 columns and 50000 observations. The following three columns (Average Rating by Driver, Average Rating of Driver, and Phone) contain missing data, noted in the table below.**
 
 |#   |Column                 | Misisng |  Dtype |
 |--- | ------                |  -------| -----  |
@@ -47,7 +47,7 @@ Data consist of 12 columns and 50000 observations. The following three columns (
 |city_Astapor          | City of Astapor|True or False|
 |city_King's Landing   | City of King's Landing  |True or False|
 |city_Winterfell       |City of Winterfell|True or False|
-|last_trip_day         |Day of last trip date | 1 to 31|
+|last_trip_day         |Day of last trip date | 1 - 31|
 |last_trip_month       |Month of last trip date| 1 - 12|
 |signup_day            |Day of signup date | 1 - 31|
 |signup_month          |Month of signup date| 1 - 12|
@@ -57,6 +57,7 @@ Data consist of 12 columns and 50000 observations. The following three columns (
 
 </details>
 
+---
 ---
 <details>
 
