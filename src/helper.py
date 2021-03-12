@@ -45,7 +45,7 @@ def data_clean(file):
 
     # Create Churn Column
     thirty_days_ago = pd.to_datetime('2014-06-01') - pd.to_timedelta(30,unit='d')
-    data['churn'] = pd.to_datetime(data['last_trip_date']) > thirty_days_ago
+    data['churn'] = (pd.to_datetime(data['last_trip_date']) > thirty_days_ago) * 1
     
     # Create duymmy variables 
     data = get_dummies(data, ['city'])
@@ -65,12 +65,11 @@ def data_clean(file):
 
     data['last_trip_day'] = data['last_trip_date'].dt.day
     data['last_trip_month'] = data['last_trip_date'].dt.month
-    data['last_trip_year'] = data['last_trip_date'].dt.year
 
 
     data['signup_day'] = data['signup_date'].dt.day
     data['signup_month'] = data['signup_date'].dt.month
-    data['signup_year'] = data['signup_date'].dt.year
+    data.drop(columns = ['last_trip_date', 'signup_date'], inplace=True)
 
     # Returns data and target
     return data.drop(columns = 'churn'), data['churn']
