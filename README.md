@@ -3,7 +3,7 @@
 We started with making all of our columns non-string or meaningfully numeric. We got dummy variables for the city and Phone column. 
 
 
-<detail>
+<details>
 
 <summary> Data Dictionay </summary>
 
@@ -27,4 +27,4 @@ We started with making all of our columns non-string or meaningfully numeric. We
 | 15|  signup_month          |  50000 |  int64 |Month of signup|
 |16 | churn| 50000|uint8| 1 if driver churned|
 
-</detail>
+</details>
