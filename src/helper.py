@@ -71,7 +71,8 @@ def data_clean(file):
 
 
     data['signup_day'] = data['signup_date'].dt.day
-    data['signup_month'] = data['signup_date'].dt.month
+    # data['signup_month'] = data['signup_date'].dt.month
+
     data.drop(columns = ['last_trip_date', 'signup_date'], inplace=True)
 
     # Returns data and target

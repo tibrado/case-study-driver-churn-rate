@@ -17,7 +17,7 @@ from sklearn.ensemble import GradientBoostingClassifier
 
 X_train, X_test, y_train, y_test = train_test_split(X, y)
 
-# X is X_test, y is y_train
+# X is X_train, y is y_train
 def get_model_errors(model, X, y):
     y_pred = model.predict(X)
     accuracy = accuracy_score(y, y_pred)
@@ -35,7 +35,7 @@ def Gradient_Boosting_Regressor(X, y, learning_rate, n_estimators):
     return model
 
 grad_model = Gradient_Boosting_Regressor(X_train, y_train, 0.1, 100)
-accuracy, precision, recall = get_model_errors(grad_model, X_test, y_train)
+accuracy, precision, recall = get_model_errors(grad_model, X_train, y_train)
 
 
 # returns R^2, MSE
