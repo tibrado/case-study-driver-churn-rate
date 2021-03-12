@@ -45,15 +45,15 @@ def data_clean(file):
 
     # Create Churn Column
     thirty_days_ago = pd.to_datetime('2014-06-01') - pd.to_timedelta(30,unit='d')
-    data['churn'] = (pd.to_datetime(data['last_trip_date']) > thirty_days_ago) * 1
+    data['churn'] = pd.to_datetime(data['last_trip_date']) > thirty_days_ago
     
     # Create duymmy variables 
     data = get_dummies(data, ['city'])
     
     # Remap column 
     data = data.rename(columns = {'phone':'is_iphone'})
-    data['is_iphone'] = data['is_iphone'].map(lambda phone: 1 if phone == 'iPhone' else 0)
-    data['luxury_car_user'] = data['luxury_car_user'].map({True: 1, False: 0})
+    data['is_iphone'] = data['is_iphone'].map(lambda phone: True if phone == 'iPhone' else False)
+    # data['luxury_car_user'] = data['luxury_car_user'].map({True: 1, False: 0})
 
     # Change last trip and signup date to day and month 
 
