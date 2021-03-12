@@ -51,11 +51,29 @@
 |last_trip_month       |Month of last trip date| 1 - 12|
 |signup_day            |Day of signup date | 1 - 31|
 |signup_month          |Month of signup date| 1 - 12|
+|use_service          |last trip data minus signup date  greater than 1| True or False|
 |**churn**| *target* :: Last trip date less greater than 30 days. |True or False|
 
 <img src = "img/data_hist.png" hight= "100"></img>
 
 </details>
+
+---
+
+<details>
+
+<summary>Models</summary>
+
+    The accuracy score is used to evaluate the following classification models. It is defined as the fraction of predictions our model got right.
+
+> **Random Forest Classifier**
+
+> **Gradient Boosting Classifier**
+
+</details>
+
+---
+### Conclusion
 
 ---
 ---

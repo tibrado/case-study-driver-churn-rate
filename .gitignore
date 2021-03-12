@@ -1,4 +1,4 @@
 # notebook checkpoints
 .ipynb_checkpoints
 
-/__pycache__
+__pycache__/

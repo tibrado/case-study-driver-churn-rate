@@ -26,7 +26,7 @@ def get_model_errors(model, X, y):
     return accuracy, precision, recall
 
 
-def Gradient_Boosting_Regressor(X, y, learning_rate, n_estimators):
+def Gradient_Boosting_Classifier(X, y, learning_rate, n_estimators):
     # loss could be lad, huber, or quantile. default is ls
     model = GradientBoostingClassifier(learning_rate=learning_rate,   
                                   n_estimators=n_estimators,
@@ -34,8 +34,8 @@ def Gradient_Boosting_Regressor(X, y, learning_rate, n_estimators):
     model.fit(X, y) 
     return model
 
-grad_model = Gradient_Boosting_Regressor(X_train, y_train, 0.1, 100)
-accuracy, precision, recall = get_model_errors(grad_model, X_train, y_train)
+# grad_model = Gradient_Boosting_Classifier(X_train, y_train, 0.1, 100)
+# accuracy, precision, recall = get_model_errors(grad_model, X_train, y_train)
 
 
 # returns R^2, MSE
