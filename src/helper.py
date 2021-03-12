@@ -34,8 +34,9 @@ def data_clean(file):
 
         Parameters: file: path to data source
 
-        Returns: pd.DataFrame with dummy variables for categorical data, 
-                 all clean data with no nan.
+        Returns: X: data with dummy variables for categorical data, 
+                    all clean data with no nan.
+                 y: Target data - churn boolean
     '''
     data = get_data(file)
     
@@ -61,9 +62,17 @@ def data_clean(file):
     data['avg_rating_of_driver'].fillna(0, inplace = True)
 
     # get day, month, year columns 
-    
-    
-    # Returns data and traget
+
+    data['last_trip_day'] = data['last_trip_date'].dt.day
+    data['last_trip_month'] = data['last_trip_date'].dt.month
+    data['last_trip_year'] = data['last_trip_date'].dt.year
+
+
+    data['signup_day'] = data['signup_date'].dt.day
+    data['signup_month'] = data['signup_date'].dt.month
+    data['signup_year'] = data['signup_date'].dt.year
+
+    # Returns data and target
     return data.drop(columns = 'churn'), data['churn']
 
 
